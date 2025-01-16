@@ -1,0 +1,48 @@
+<div class="container">
+  <h1 style="text-align: center;">RELATÓRIO MENSAL DA RESIDÊNCIA</h1>
+  <form [formGroup]="activityForm" (ngSubmit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome</mat-label>
+      <input matInput formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Matrícula</mat-label>
+      <input matInput formControlName="registration" required>
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Data</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date" required readonly>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <div class="week-container">
+      <button mat-raised-button color="primary" (click)="addWeek()">+ Semana</button>
+    <div formArrayName="weeks">
+      <div *ngFor="let week of weeks.controls; let i=index" [formGroupName]="i" class="week-group">
+        <h3>Semana {{i + 1}}</h3>
+        <mat-form-field appearance="fill">
+          <mat-label>Atividades Concluídas</mat-label>
+          <textarea class="textarea" matInput formControlName="completedActivities" required></textarea>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Duração Estimada</mat-label>
+          <input matInput formControlName="estimatedDuration" required placeholder="e.x., 30 horas">
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>Natureza das Atividades</mat-label>
+          <input matInput formControlName="natureOfActivities" required placeholder="e.x., pesquisa, extensão, ensino">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="buttons">
+      <button mat-raised-button color="accent" type="submit">Enviar</button>
+      <button mat-raised-button type="button" (click)="download()" style="background-color: greenyellow;">Baixar</button>
+    </div>
+  </div>
+    
+  </form>
+</div>

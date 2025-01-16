@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 60%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+
+.week-container h3{
+    margin-top: 10px;
+}
+.week-group {
+    display: flex;
+    flex-direction: column;
+}
+mat-form-field, .week-group , .week-container{
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+button {
+    width: 144px;
+    color: white;
+}
+
+.mat-mdc-form-field .textarea {
+    height: 100px;
+}
+
+::-webkit-scrollbar {
+    width: 8;
+}
+
